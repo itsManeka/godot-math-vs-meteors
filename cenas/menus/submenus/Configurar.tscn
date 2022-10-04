@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://recursos/fontes/spacefont.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://cenas/menus/submenus/Configurar.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+size = 10
+outline_size = 2
+outline_color = Color( 0.0392157, 0.45098, 0.0666667, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+outline_size = 2
+outline_color = Color( 0.0392157, 0.45098, 0.0666667, 1 )
+font_data = ExtResource( 1 )
+
+[node name="MainMenu" type="VBoxContainer"]
+margin_top = 143.0
+margin_right = 180.0
+margin_bottom = 247.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Som" type="CheckBox" parent="."]
+margin_left = 61.0
+margin_right = 119.0
+margin_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "SOM"
+align = 1
+
+[node name="Idioma" type="OptionButton" parent="."]
+margin_left = 53.0
+margin_top = 28.0
+margin_right = 127.0
+margin_bottom = 46.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "Idioma"
+align = 1
+
+[node name="Control" type="Label" parent="."]
+margin_top = 50.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 0, 20 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Voltar" type="Button" parent="."]
+margin_top = 74.0
+margin_right = 180.0
+margin_bottom = 97.0
+custom_fonts/font = SubResource( 4 )
+text = "VOLTAR"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="Som" to="." method="_on_Som_button_down"]
+[connection signal="button_down" from="Idioma" to="." method="_on_Idioma_button_down"]
+[connection signal="button_down" from="Voltar" to="." method="_on_Voltar_button_down"]

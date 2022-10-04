@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://cenas/menus/popups/MenuReviver.gd" type="Script" id=1]
+[ext_resource path="res://recursos/fontes/spacefont.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://modulos/admob/admob.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+outline_size = 2
+outline_color = Color( 0.0392157, 0.45098, 0.0666667, 1 )
+font_data = ExtResource( 2 )
+
+[node name="MenuReviver" type="PanelContainer"]
+modulate = Color( 0.6, 0.815686, 0.572549, 0.643137 )
+margin_right = 109.0
+margin_bottom = 152.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 102.0
+margin_bottom = 145.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Texto" type="Label" parent="VBoxContainer"]
+margin_top = 35.0
+margin_right = 95.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 1 )
+text = "VER_VIDEO"
+align = 1
+autowrap = true
+
+[node name="Espaco" type="Label" parent="VBoxContainer"]
+margin_top = 50.0
+margin_right = 95.0
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 1 )
+
+[node name="Sim" type="Button" parent="VBoxContainer"]
+margin_top = 65.0
+margin_right = 95.0
+margin_bottom = 82.0
+custom_fonts/font = SubResource( 1 )
+text = "SIM"
+flat = true
+
+[node name="Nao" type="Button" parent="VBoxContainer"]
+margin_top = 86.0
+margin_right = 95.0
+margin_bottom = 103.0
+custom_fonts/font = SubResource( 1 )
+text = "NAO"
+flat = true
+
+[node name="AdMob" type="Node" parent="."]
+script = ExtResource( 3 )
+is_real = true
+[connection signal="button_down" from="VBoxContainer/Sim" to="." method="_on_Sim_button_down"]
+[connection signal="button_down" from="VBoxContainer/Nao" to="." method="_on_Nao_button_down"]
+[connection signal="rewarded" from="AdMob" to="." method="_on_AdMob_rewarded"]
+[connection signal="rewarded_video_closed" from="AdMob" to="." method="_on_AdMob_rewarded_video_closed"]
+[connection signal="rewarded_video_left_application" from="AdMob" to="." method="_on_AdMob_rewarded_video_left_application"]
+[connection signal="rewarded_video_loaded" from="AdMob" to="." method="_on_AdMob_rewarded_video_loaded"]

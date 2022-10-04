@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/explodir_terra.ogg-cffcf7d3f64fb8cee4eb7ac206c1786a.oggstr"
+
+[deps]
+
+source_file="res://recursos/sons/explodir_terra.ogg"
+dest_files=[ "res://.import/explodir_terra.ogg-cffcf7d3f64fb8cee4eb7ac206c1786a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

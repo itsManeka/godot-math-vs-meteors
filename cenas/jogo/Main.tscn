@@ -1,0 +1,307 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://recursos/terra.png" type="Texture" id=1]
+[ext_resource path="res://cenas/jogo/Main.gd" type="Script" id=2]
+[ext_resource path="res://cenas/jogo/itens/EscudoTerra.tscn" type="PackedScene" id=3]
+[ext_resource path="res://recursos/comando.png" type="Texture" id=4]
+[ext_resource path="res://cenas/jogo/recursos/SpaceFont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://cenas/jogo/interface/BarraVida.tscn" type="PackedScene" id=6]
+[ext_resource path="res://recursos/sons/explodir_terra.ogg" type="AudioStream" id=7]
+[ext_resource path="res://recursos/sons/colidir_terra.ogg" type="AudioStream" id=8]
+[ext_resource path="res://recursos/sons/atirar.ogg" type="AudioStream" id=9]
+[ext_resource path="res://recursos/sons/usar_item.ogg" type="AudioStream" id=10]
+[ext_resource path="res://recursos/sons/musica.ogg" type="AudioStream" id=11]
+[ext_resource path="res://cenas/menus/popups/MenuPause.tscn" type="PackedScene" id=12]
+[ext_resource path="res://cenas/menus/popups/MenuReviver.tscn" type="PackedScene" id=13]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 102.078
+
+[sub_resource type="Animation" id=2]
+resource_name = "Fim de jogo"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.601, 0.7, 0.8, 0.9, 1, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -40 ), Vector2( -3, -35 ), Vector2( 10, -30 ), Vector2( -2, -25 ), Vector2( 5, -20 ), Vector2( 0, -15 ), Vector2( -10, -10 ), Vector2( 0, -10 ), Vector2( 0, -5 ), Vector2( -5, 0 ), Vector2( 3, 5 ), Vector2( 0, 10 ), Vector2( 3, 15 ), Vector2( -5, 20 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.0196078, 0.0196078, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0.0196078, 0.0196078, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0.0196078, 0.0196078, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "muda_tela_game_over"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.02, 0.04, 0.06, 0.08, 0.1, 0.12 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -40 ), Vector2( 4, -44 ), Vector2( 0, -40 ), Vector2( -4, -38 ), Vector2( 0, -40 ), Vector2( 0, -44 ), Vector2( 0, -40 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Atirar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Atirar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.294118 ), Color( 1, 1, 1, 0.932301 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Interface:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.823529 ), Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 0.823529 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 90.5987, 4.93117 )
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Escudo" parent="." instance=ExtResource( 3 )]
+position = Vector2( 90.1017, 278.982 )
+
+[node name="TerraBody" type="Area2D" parent="."]
+position = Vector2( 0, -40 )
+z_index = -1
+
+[node name="Terra" type="Sprite" parent="TerraBody"]
+position = Vector2( 90, 380 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TerraBody"]
+position = Vector2( 90, 375 )
+shape = SubResource( 1 )
+
+[node name="AnimacaoTerra" type="AnimationPlayer" parent="TerraBody"]
+"anims/Fim de jogo" = SubResource( 2 )
+anims/shake = SubResource( 3 )
+
+[node name="NodeComando" type="Node2D" parent="."]
+
+[node name="Comando" type="Sprite" parent="NodeComando"]
+position = Vector2( 90, 160 )
+texture = ExtResource( 4 )
+
+[node name="Item1" type="Position2D" parent="NodeComando"]
+position = Vector2( 45, 295 )
+
+[node name="Item2" type="Position2D" parent="NodeComando"]
+position = Vector2( 135, 295 )
+
+[node name="Item3" type="Position2D" parent="NodeComando"]
+position = Vector2( 14, 279 )
+
+[node name="Item4" type="Position2D" parent="NodeComando"]
+position = Vector2( 166, 279 )
+
+[node name="Atirar" type="Button" parent="."]
+margin_left = 71.0
+margin_top = 281.0
+margin_right = 130.0
+margin_bottom = 302.0
+rect_scale = Vector2( 0.7, 0.7 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 5 )
+disabled = true
+text = "ATIRAR"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimacaoAtirar" type="AnimationPlayer" parent="."]
+anims/parar = SubResource( 4 )
+anims/piscar = SubResource( 5 )
+
+[node name="AnimacaoGeral" type="AnimationPlayer" parent="."]
+autoplay = "piscar"
+anims/piscar = SubResource( 6 )
+
+[node name="Interface" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0.823529 )
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pontos" type="Label" parent="Interface"]
+margin_top = 8.0
+margin_right = 180.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 5 )
+text = "0 pts"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Multp" type="Label" parent="Interface"]
+visible = false
+margin_top = 21.0
+margin_right = 225.0
+margin_bottom = 30.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = ExtResource( 5 )
+text = "X2"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BarraVida" parent="Interface" instance=ExtResource( 6 )]
+modulate = Color( 1, 1, 1, 0.359677 )
+margin_left = 5.66963
+margin_top = 4.50658
+margin_right = 5.66963
+margin_bottom = 4.50658
+
+[node name="Calculo" type="Label" parent="Interface"]
+modulate = Color( 1, 1, 1, 0.359677 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_top = 263.0
+margin_right = 160.0
+margin_bottom = 272.0
+rect_min_size = Vector2( 180, 0 )
+custom_fonts/font = ExtResource( 5 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pausar" type="Button" parent="Interface"]
+margin_left = 158.0
+margin_top = 7.0
+margin_right = 179.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 5 )
+text = "II"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimerMultp" type="Timer" parent="."]
+
+[node name="NovoMeteoro" type="Area2D" parent="."]
+
+[node name="Colisao" type="CollisionShape2D" parent="NovoMeteoro"]
+position = Vector2( 89.8985, 23.2102 )
+shape = SubResource( 7 )
+
+[node name="UsarItem" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+
+[node name="ColidirMeteoro" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+
+[node name="SomAtirar" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+
+[node name="Musica" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+volume_db = -5.0
+
+[node name="ExplodirTerra" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+
+[node name="MenuPause" parent="." instance=ExtResource( 12 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 38.5
+margin_top = 110.0
+margin_right = 143.5
+margin_bottom = 210.0
+
+[node name="MenuReviver" parent="." instance=ExtResource( 13 )]
+visible = false
+margin_left = 38.5
+margin_top = 84.0
+margin_right = 147.5
+margin_bottom = 236.0
+[connection signal="area_entered" from="TerraBody" to="." method="_on_TerraBody_area_entered"]
+[connection signal="button_down" from="Atirar" to="." method="_on_Atirar_button_down"]
+[connection signal="fim_de_jogo" from="Interface/BarraVida" to="." method="_on_BarraVida_fim_de_jogo"]
+[connection signal="button_down" from="Interface/Pausar" to="." method="_on_Pausar_button_down"]
+[connection signal="timeout" from="TimerMultp" to="." method="_on_TimerMultp_timeout"]
+[connection signal="area_entered" from="NovoMeteoro" to="." method="_on_NovoMeteoro_area_entered"]
+[connection signal="on_continuar" from="MenuPause" to="." method="_on_MenuPause_on_continuar"]
+[connection signal="on_menu" from="MenuPause" to="." method="_on_MenuPause_on_menu"]
+[connection signal="on_nao" from="MenuReviver" to="." method="_on_MenuReviver_on_nao"]
+[connection signal="on_sim" from="MenuReviver" to="." method="_on_MenuReviver_on_sim"]

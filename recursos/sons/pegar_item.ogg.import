@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pegar_item.ogg-5ff1ace8ec6f20540109c269ced0cfcf.oggstr"
+
+[deps]
+
+source_file="res://recursos/sons/pegar_item.ogg"
+dest_files=[ "res://.import/pegar_item.ogg-5ff1ace8ec6f20540109c269ced0cfcf.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

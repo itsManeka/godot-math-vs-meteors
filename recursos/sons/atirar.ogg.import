@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/atirar.ogg-b652016e8d0a5cf06c84c9e1ded61d1a.oggstr"
+
+[deps]
+
+source_file="res://recursos/sons/atirar.ogg"
+dest_files=[ "res://.import/atirar.ogg-b652016e8d0a5cf06c84c9e1ded61d1a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

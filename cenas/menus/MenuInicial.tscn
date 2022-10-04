@@ -1,0 +1,135 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://cenas/menus/MenuInicial.gd" type="Script" id=1]
+[ext_resource path="res://modulos/admob/admob.gd" type="Script" id=2]
+[ext_resource path="res://recursos/terra.png" type="Texture" id=3]
+[ext_resource path="res://recursos/mvsm_logo.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Container/Terra:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 91.6436, 64.0975 ), Vector2( 86.9716, 328.396 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Container/Terra:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2.4, 2.4 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Container/Titulo:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 74 ), Vector2( 0, 340 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "iniciar_jogo"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Container/Titulo:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2.5, 2.5 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Container/Titulo:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 74 ), Vector2( -130, 320 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Container/Menus:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="MenuInicial" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="VBoxContainer" parent="."]
+margin_right = 180.0
+margin_bottom = 320.0
+custom_constants/separation = 30
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Terra" type="Sprite" parent="Container"]
+position = Vector2( 91.6436, 64.0975 )
+texture = ExtResource( 3 )
+
+[node name="Titulo" type="TextureRect" parent="Container"]
+margin_top = 124.0
+margin_right = 180.0
+margin_bottom = 165.0
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="Menus" type="VBoxContainer" parent="Container"]
+margin_top = 195.0
+margin_right = 180.0
+margin_bottom = 195.0
+alignment = 1
+
+[node name="Animacao" type="AnimationPlayer" parent="."]
+anims/Iniciar = SubResource( 1 )
+
+[node name="AdMob" type="Node" parent="."]
+script = ExtResource( 2 )
+is_real = true
+banner_on_top = false
+[connection signal="banner_loaded" from="AdMob" to="." method="_on_AdMob_banner_loaded"]

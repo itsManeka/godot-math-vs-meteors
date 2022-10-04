@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://cenas/menus/popups/MenuPause.gd" type="Script" id=1]
+[ext_resource path="res://recursos/fontes/spacefont.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+outline_size = 2
+outline_color = Color( 0.0392157, 0.45098, 0.0666667, 1 )
+font_data = ExtResource( 2 )
+
+[node name="MenuPause" type="PanelContainer"]
+modulate = Color( 0.6, 0.815686, 0.572549, 0.643137 )
+margin_right = 105.0
+margin_bottom = 100.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 102.0
+margin_bottom = 93.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continuar" type="Button" parent="VBoxContainer"]
+margin_top = 24.0
+margin_right = 95.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 1 )
+text = "CONTINUAR"
+flat = true
+
+[node name="Menu" type="Button" parent="VBoxContainer"]
+margin_top = 45.0
+margin_right = 95.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 1 )
+text = "Menu"
+flat = true
+[connection signal="button_down" from="VBoxContainer/Continuar" to="." method="_on_Continuar_button_down"]
+[connection signal="button_down" from="VBoxContainer/Menu" to="." method="_on_Menu_button_down"]

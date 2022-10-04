@@ -1,0 +1,205 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://recursos/fontes/spacefont.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://cenas/menus/GameOver.gd" type="Script" id=2]
+[ext_resource path="res://recursos/terra.png" type="Texture" id=3]
+[ext_resource path="res://recursos/mvsm_logo.png" type="Texture" id=4]
+[ext_resource path="res://modulos/admob/admob.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 12
+outline_size = 2
+outline_color = Color( 0.0392157, 0.45098, 0.0666667, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Container/Terra:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 91.6436, 64.0975 ), Vector2( 86.9716, 328.396 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Container/Terra:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2.4, 2.4 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Container/Titulo:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 74 ), Vector2( 0, 340 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Container/Titulo:rect_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2.5, 2.5 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Container/Titulo:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 74 ), Vector2( -130, 320 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Container/Menus:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "iniciar_jogo"
+} ]
+}
+
+[node name="GameOver" type="Control"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="VBoxContainer" parent="."]
+margin_right = 180.0
+margin_bottom = 320.0
+custom_constants/separation = 30
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Terra" type="Sprite" parent="Container"]
+position = Vector2( 91.6436, 64.0975 )
+texture = ExtResource( 3 )
+
+[node name="Titulo" type="TextureRect" parent="Container"]
+margin_top = 74.0
+margin_right = 180.0
+margin_bottom = 115.0
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="Menus" type="VBoxContainer" parent="Container"]
+margin_top = 119.0
+margin_right = 180.0
+margin_bottom = 271.0
+alignment = 1
+
+[node name="GameOverLabel" type="Label" parent="Container/Menus"]
+margin_right = 180.0
+margin_bottom = 13.0
+custom_fonts/font = SubResource( 1 )
+text = "FIM_DE_JOGO"
+align = 1
+
+[node name="Espaco" type="Label" parent="Container/Menus"]
+margin_top = 17.0
+margin_right = 180.0
+margin_bottom = 31.0
+align = 1
+
+[node name="Pontos" type="Label" parent="Container/Menus"]
+margin_top = 35.0
+margin_right = 180.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 1 )
+text = "100 pts"
+align = 1
+
+[node name="MelhorPontuacao" type="Label" parent="Container/Menus"]
+margin_top = 52.0
+margin_right = 180.0
+margin_bottom = 65.0
+custom_fonts/font = SubResource( 1 )
+text = "RECORD"
+align = 1
+
+[node name="Espaco2" type="Label" parent="Container/Menus"]
+margin_top = 69.0
+margin_right = 180.0
+margin_bottom = 83.0
+align = 1
+
+[node name="JogarNovamente" type="Button" parent="Container/Menus"]
+margin_top = 87.0
+margin_right = 180.0
+margin_bottom = 106.0
+custom_fonts/font = SubResource( 1 )
+text = "JOGAR_NOVAMENTE"
+flat = true
+
+[node name="TWITTER" type="Button" parent="Container/Menus"]
+margin_top = 110.0
+margin_right = 180.0
+margin_bottom = 129.0
+custom_fonts/font = SubResource( 1 )
+text = "Twitter"
+flat = true
+
+[node name="MENU" type="Button" parent="Container/Menus"]
+margin_top = 133.0
+margin_right = 180.0
+margin_bottom = 152.0
+custom_fonts/font = SubResource( 1 )
+text = "Menu"
+flat = true
+
+[node name="Animacao" type="AnimationPlayer" parent="."]
+anims/Iniciar = SubResource( 2 )
+
+[node name="AdMob" type="Node" parent="."]
+script = ExtResource( 5 )
+is_real = true
+[connection signal="button_down" from="Container/Menus/JogarNovamente" to="." method="_on_JogarNovamente_button_down"]
+[connection signal="button_down" from="Container/Menus/TWITTER" to="." method="_on_TWITTER_button_down"]
+[connection signal="button_down" from="Container/Menus/MENU" to="." method="_on_MENU_button_down"]
+[connection signal="interstitial_closed" from="AdMob" to="." method="_on_AdMob_interstitial_closed"]
+[connection signal="interstitial_failed_to_load" from="AdMob" to="." method="_on_AdMob_interstitial_failed_to_load"]
+[connection signal="interstitial_loaded" from="AdMob" to="." method="_on_AdMob_interstitial_loaded"]

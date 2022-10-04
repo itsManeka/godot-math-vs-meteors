@@ -1,0 +1,151 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://recursos/fontes/spacefont.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://cenas/menus/submenus/Sobre.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+outline_size = 2
+outline_color = Color( 0.0392157, 0.45098, 0.0666667, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 7
+outline_size = 1
+outline_color = Color( 0.0392157, 0.45098, 0.0666667, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 5
+font_data = ExtResource( 1 )
+
+[node name="Sobre" type="VBoxContainer"]
+margin_top = 143.0
+margin_right = 180.0
+margin_bottom = 247.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CriadoPorTitulo" type="Label" parent="."]
+margin_right = 180.0
+margin_bottom = 11.0
+custom_fonts/font = SubResource( 1 )
+text = "CRIADO_POR"
+align = 1
+
+[node name="CriadoPor" type="Label" parent="."]
+margin_top = 15.0
+margin_right = 180.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 2 )
+text = "Emanuel Ozorio Dias"
+align = 1
+
+[node name="Espaco1" type="Label" parent="."]
+margin_top = 27.0
+margin_right = 180.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 3 )
+align = 1
+
+[node name="ContatoTitulo" type="Label" parent="."]
+margin_top = 37.0
+margin_right = 180.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 1 )
+text = "CONTATO"
+align = 1
+
+[node name="Twitter" type="LinkButton" parent="."]
+margin_left = 41.0
+margin_top = 52.0
+margin_right = 139.0
+margin_bottom = 60.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Twitter: @itsManeka"
+
+[node name="Espaco4" type="Label" parent="."]
+margin_top = 64.0
+margin_right = 180.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 3 )
+align = 1
+
+[node name="IG" type="LinkButton" parent="."]
+margin_left = 41.0
+margin_top = 74.0
+margin_right = 138.0
+margin_bottom = 82.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "IG: @emanuelozorio"
+
+[node name="Espaco5" type="Label" parent="."]
+margin_top = 86.0
+margin_right = 180.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 3 )
+align = 1
+
+[node name="Email" type="LinkButton" parent="."]
+margin_left = 14.0
+margin_top = 96.0
+margin_right = 165.0
+margin_bottom = 104.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "emanuel.ozoriodias@gmail.com"
+
+[node name="Espaco2" type="Label" parent="."]
+margin_top = 108.0
+margin_right = 180.0
+margin_bottom = 114.0
+custom_fonts/font = SubResource( 3 )
+align = 1
+
+[node name="AssetsTitulo" type="Label" parent="."]
+margin_top = 118.0
+margin_right = 180.0
+margin_bottom = 129.0
+custom_fonts/font = SubResource( 1 )
+text = "Assets:"
+align = 1
+
+[node name="Assets" type="LinkButton" parent="."]
+margin_left = 39.0
+margin_top = 133.0
+margin_right = 141.0
+margin_bottom = 141.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "itch.io/assets-mvsm"
+
+[node name="Espaco3" type="Label" parent="."]
+margin_top = 145.0
+margin_right = 180.0
+margin_bottom = 151.0
+custom_fonts/font = SubResource( 3 )
+align = 1
+
+[node name="Voltar" type="Button" parent="."]
+margin_top = 155.0
+margin_right = 180.0
+margin_bottom = 172.0
+custom_fonts/font = SubResource( 1 )
+text = "VOLTAR"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="Twitter" to="." method="_on_Twitter_button_down"]
+[connection signal="button_down" from="IG" to="." method="_on_IG_button_down"]
+[connection signal="button_down" from="Email" to="." method="_on_Email_button_down"]
+[connection signal="button_down" from="Assets" to="." method="_on_Assets_button_down"]
+[connection signal="button_down" from="Voltar" to="." method="_on_Voltar_button_down"]

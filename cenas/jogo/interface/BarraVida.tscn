@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://cenas/jogo/recursos/SpaceFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://recursos/barra_vida.png" type="Texture" id=2]
+[ext_resource path="res://cenas/jogo/interface/BarraVida.gd" type="Script" id=3]
+
+[node name="BarraVida" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Progresso" type="TextureProgress" parent="."]
+margin_left = 3.0
+margin_top = 22.0
+margin_right = 34.0
+margin_bottom = 62.0
+step = 0.1
+value = 100.0
+texture_progress = ExtResource( 2 )
+fill_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Valor" type="Label" parent="."]
+margin_left = 1.0
+margin_top = 13.0
+margin_right = 32.0
+margin_bottom = 22.0
+rect_scale = Vector2( 0.8, 0.8 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 1 )
+text = "100%"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Indicador" type="Label" parent="."]
+margin_left = 1.0
+margin_top = 3.0
+margin_right = 31.0
+margin_bottom = 24.0
+rect_scale = Vector2( 0.8, 0.8 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 1 )
+text = "VIDA_M"
+__meta__ = {
+"_edit_use_anchors_": false
+}
